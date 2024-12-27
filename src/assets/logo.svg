@@ -1,4 +1,13 @@
 <svg width="96" height="64" viewBox="0 0 96 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="96" height="64" fill="#1E1E1E"/>
+<g id="&#240;&#159;&#146;&#187;">
+<path d="M-349 -733C-349 -760.614 -326.614 -783 -299 -783H5604C5631.61 -783 5654 -760.614 5654 -733V1164C5654 1191.61 5631.61 1214 5604 1214H-299C-326.614 1214 -349 1191.61 -349 1164V-733Z" fill="#242424"/>
+<g id="Login">
+<g clip-path="url(#clip0_0_1)">
+<rect x="-140" y="-109" width="375" height="812" rx="30" fill="#F7F7F8"/>
+<g id="Frame 6">
+<path d="M-140 -65H235V467C235 480.255 224.255 491 211 491H-116C-129.255 491 -140 480.255 -140 467V-65Z" fill="#EDECEE"/>
+<g id="Group 1">
 <g id="Frame 1">
 <path id="Ellipse 3" d="M30.1538 45.666C19.9097 47.5407 12.56 47.1449 11.4875 44.1361C9.79669 39.3931 24.3452 29.9528 43.9825 23.0506C63.6198 16.1484 80.9096 14.3981 82.6004 19.1411C83.6795 22.1683 78.1435 27.109 68.8915 32.082" stroke="#364D9D" stroke-width="2"/>
 <ellipse id="Ellipse 2" cx="46.4646" cy="30.8595" rx="22.9368" ry="22.7755" fill="#364D9D"/>
@@ -9,4 +18,21 @@
 </g>
 <path id="Ellipse 4" d="M30.1537 45.666C31.882 45.3497 33.6928 44.9688 35.5697 44.5249M68.8914 32.082C67.1479 33.0191 65.2725 33.9573 63.2846 34.8841" stroke="#F7F7F8" stroke-width="2"/>
 </g>
+</g>
+</g>
+<g id="Iphone ">
+<g clip-path="url(#clip1_0_1)">
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_0_1">
+<rect x="-140" y="-109" width="375" height="812" rx="30" fill="white"/>
+</clipPath>
+<clipPath id="clip1_0_1">
+<rect x="-140" y="-109" width="375" height="812" rx="30" fill="white"/>
+</clipPath>
+</defs>
 </svg>
