@@ -23,7 +23,7 @@ export function SignIn() {
         <Center w={"$80"} gap="$2">
           <Input placeholder="E-mail" />
           <Input placeholder="Senha" />
-          <Button title="Entrar" color={"blue"} mt={'$4'} icon="plus"/>
+          <Button title="Entrar" style={"gray"} mt={'$4'} icon="plus"/>
         </Center>       
 
       </VStack>
