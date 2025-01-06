@@ -1,4 +1,4 @@
-import { Plus, Power, TrashSimple, ArrowLeft, Tag, WhatsappLogo } from "phosphor-react-native";
+import { Plus, Power, Trash, ArrowLeft, Tag, PhoneCall } from "lucide-react-native";
 import { useStyled, ButtonSpinner, Button as GluestackButton, Text, HStack } from '@gluestack-ui/themed';
 import { ComponentProps } from 'react'
 
@@ -29,13 +29,13 @@ export function Button({ title, style = 'regular', icon = null, isLoading = fals
       case "power":
         return <Power color={resolvedColor} size={16} />;
       case "delete": 
-        return <TrashSimple color={resolvedColor} size={16} />;
+        return <Trash color={resolvedColor} size={16} />;
       case "goBack":
         return <ArrowLeft color={resolvedColor} size={16} />;
       case "tag":
         return <Tag color={resolvedColor} size={16} />;
       case "contact":
-        return <WhatsappLogo color={resolvedColor} size={16} />;
+        return <PhoneCall color={resolvedColor} size={16} />;
       default:
         return null;
     }
@@ -47,7 +47,7 @@ export function Button({ title, style = 'regular', icon = null, isLoading = fals
       h="$12"
       bg={style === 'regular' ? '$gray100' : style === 'gray' ? '$gray500' : '$blueRegular'}
       rounded="$md"
-      $active-bg={style === 'regular' ? '$gray200' : style === 'gray' ? '$gray700' : '$blueRegular'}
+      $active-bg={style === 'regular' ? '$gray200' : style === 'gray' ? '$gray700' : '$blueLight'}
       disabled={isLoading}
       {...props}
     >
