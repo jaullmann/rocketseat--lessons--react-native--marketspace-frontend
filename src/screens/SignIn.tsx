@@ -12,7 +12,7 @@ export function SignIn() {
       contentContainerStyle={{ flexGrow: 1 }}
       showsVerticalScrollIndicator={false}
     >
-      <Center pt={110} pb={68} $base-rounded={24} bg="$gray600" justifyContent="center">
+      <Center pt={70} pb={68} $base-rounded={24} bg="$gray600" justifyContent="center">
         <Logo width={125} height={100}/>
         <VStack> 
           <Text alignSelf="center" fontFamily="$heading" fontSize="$4xl" color="$gray100">
@@ -28,7 +28,7 @@ export function SignIn() {
           <Center w={"$80"} gap="$2">
             <Input placeholder="E-mail" keyboardType="email-address" />
             <Input placeholder="Senha" secureTextEntry />
-            <Button title="Entrar" style={"blue"} mt={'$4'} icon="plus"/>
+            <Button title="Entrar" style={"blue"} mt={'$4'} />
           </Center>       
 
         </VStack>
