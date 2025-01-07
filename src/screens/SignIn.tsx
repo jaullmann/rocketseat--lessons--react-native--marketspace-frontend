@@ -25,7 +25,7 @@ export function SignIn() {
           <Text mt={"$20"} mb={"$5"} alignSelf="center" fontFamily="$body" color="$gray200">
             Acesse sua conta
           </Text>
-          <Center w={"$80"} gap="$2">
+          <Center w={"$80"} gap="$3">
             <Input placeholder="E-mail" keyboardType="email-address" />
             <Input placeholder="Senha" secureTextEntry />
             <Button title="Entrar" style={"blue"} mt={'$4'} />

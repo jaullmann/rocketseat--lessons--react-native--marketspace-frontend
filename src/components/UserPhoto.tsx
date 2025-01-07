@@ -15,7 +15,7 @@ export function UserPhoto({ uri = null, imageProps, buttonProps }: Props) {
   const styled = useStyled();
 
   return (
-    <Center>
+    <Center mb={'$3'}>
       {uri ? (
         <Image
           w={92}

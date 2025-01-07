@@ -28,7 +28,7 @@ export function SignUp() {
 
         <Center w={"$80"} mt={"$8"} gap={"$3"}>
           <UserPhoto uri={userPhoto} />
-          <Input placeholder="Nome" />
+          <Input placeholder="Nome"/>
           <Input placeholder="E-mail" keyboardType="email-address" />
           <Input placeholder="Telefone" keyboardType="phone-pad" />
           <Input placeholder="Senha" secureTextEntry visibilityControl/>
