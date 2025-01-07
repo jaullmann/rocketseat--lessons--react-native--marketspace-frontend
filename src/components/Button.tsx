@@ -47,7 +47,7 @@ export function Button({ title, style = 'regular', icon = null, isLoading = fals
       h="$12"
       bg={style === 'regular' ? '$gray100' : style === 'gray' ? '$gray500' : '$blueRegular'}
       rounded="$md"
-      $active-bg={style === 'regular' ? '$gray200' : style === 'gray' ? '$gray600' : '$blueLight'}
+      $active-bg={style === 'regular' ? '$gray200' : style === 'gray' ? '$gray700' : '$blueLight'}
       disabled={isLoading}
       {...props}
     >
