@@ -1,4 +1,4 @@
-import { Center, Text } from "@gluestack-ui/themed";
+import { ScrollView, Center, Text } from "@gluestack-ui/themed";
 
 export function Home() {
   return (
