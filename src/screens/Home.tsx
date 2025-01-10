@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { ScrollView, Center, Text, HStack, VStack } from "@gluestack-ui/themed";
 import { UserAnnouncementsCard } from "@components/UserAnnouncementsCard";
 import { ProductCard } from "@components/ProductCard";
+import { SearchBar } from "@components/SearchBar";
 import { UserPhoto } from "@components/UserPhoto";
 import { Button } from "@components/Button";
 
 export function Home() {
 
-  const [userName, setUserName] = useState("usuário");
+  const [userName, setUserName] = useState("username");
   const [userProductsAmount, setUserProductsAmount] = useState(1);
 
   return (
@@ -18,8 +19,7 @@ export function Home() {
     >
       <VStack mt={66} mx={"$6"} >
 
-        <HStack 
-          mb={32} 
+        <HStack           
           alignItems="center" 
           justifyContent="space-between"
         >
@@ -27,7 +27,7 @@ export function Home() {
             <UserPhoto uri={'https://github.com/jaullmann.png'} size="md" />
             <VStack marginLeft={10} justifyContent="flex-start" >
               <Text               
-                fontFamily="body" 
+                fontFamily="$body" 
                 color={"$gray100"} 
                 fontSize={"$md"} 
                 width={"$full"}
@@ -35,7 +35,7 @@ export function Home() {
                 Boas Vindas,
               </Text>
               <Text 
-                fontFamily="heading" 
+                fontFamily="$heading" 
                 color={"$gray100"} 
                 fontSize={"$md"} 
                 width={"$full"}
@@ -50,12 +50,20 @@ export function Home() {
         {
           userProductsAmount > 0 &&
           <VStack>
-            <Text mb={12} fontFamily="heading" color={"$gray300"} fontSize={"$sm"}>
+            <Text mt={32} mb={12} fontFamily="heading" color={"$gray300"} fontSize={"$sm"}>
               Seus produtos anunciados para venda
             </Text>
             <UserAnnouncementsCard amount={userProductsAmount} />
           </VStack>
         }
+
+        <Text mt={32} mb={12} fontFamily="heading" color={"$gray300"} fontSize={"$sm"}>
+          Compre produtos variados
+        </Text>
+        <SearchBar 
+          inputText=""
+          placeholder="Buscar anúncio"        
+        />
 
       </VStack> 
          
