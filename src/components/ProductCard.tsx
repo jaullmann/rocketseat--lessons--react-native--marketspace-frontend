@@ -8,8 +8,8 @@ type Props = ComponentProps<typeof Image> & {
   price: number;
   productPhotoUri?: string,
   userPhotoUri?: string;
-  newProduct: boolean;
-  onPress: () => {}
+  newProduct?: boolean;
+  onPress?: () => void
 }
 
 export function ProductCard({
@@ -17,7 +17,7 @@ export function ProductCard({
   price,
   productPhotoUri,
   userPhotoUri,
-  newProduct,
+  newProduct = false,
   onPress,
   ...props
 }: Props){
@@ -32,21 +32,31 @@ export function ProductCard({
   }
   
   return(
-    <VStack h={144} flex={1/2} justifyContent="flex-start">
+    <VStack 
+      h={144} 
+      flex={1} 
+      justifyContent="flex-start" 
+      maxWidth={'48%'} 
+      alignSelf="flex-start"      
+    >
       <HStack 
-        w={"$full"} 
+        w={'94%'} 
         mx={"$1"} 
         alignItems="flex-start"
         justifyContent="space-between"
+        position="absolute"
+        zIndex={999}
+        top={5}        
+        left={1}
       >
         { 
           userPhotoUri ?
           <Image 
-            source={'https://github.com/jaullmann.png'}
+            source={{ uri: userPhotoUri }}
             borderWidth={1}
             borderColor="$gray700"
-            w={"$8"}
-            h={"$8"} 
+            w={24}
+            h={24} 
             rounded={"$full"}         
             resizeMode="cover"          
           /> :
@@ -57,12 +67,12 @@ export function ProductCard({
           py={2}
           rounded={"$full"} 
           color={"$white"}
-          bg={newProduct? "$gray200" : "$blueRegular"}
+          bg={newProduct ? "$blueRegular" : "$gray200" }
           fontSize={"$2xs"}
           fontFamily="$heading"          
           textTransform="uppercase"
         >
-            {newProduct? "novo" : "usado"}
+            {newProduct ? "novo" : "usado"}
         </Text>
 
       </HStack>
@@ -70,11 +80,11 @@ export function ProductCard({
       { 
         productPhotoUri ? 
         <Image 
-          source={'https://static.wixstatic.com/media/2edbed_60c206e178ad4eb3801f4f47fc6523df~mv2.webp/v1/fill/w_350,h_375,al_c/2edbed_60c206e178ad4eb3801f4f47fc6523df~mv2.webp'}
+          source={{ uri: productPhotoUri }}
           w="$full"
           h={100} 
           rounded={"$sm"}         
-          resizeMode="cover"
+          resizeMode="cover"          
           {...props}
         /> 
         :
@@ -84,43 +94,41 @@ export function ProductCard({
           bg={styled.config.tokens.colors.gray400}
           rounded={"$sm"}           
         > 
-          <CameraOff size={"$8"} color={styled.config.tokens.colors.gray300} />
+          <CameraOff size={48} color={styled.config.tokens.colors.gray500} />
         </Center>
       }
 
-      <Text
-        h={18}
-        px={2}
-        fontSize={"$sm"}
-        fontFamily="$body"   
-        color={"$gray200"}
-        numberOfLines={1}  
-        ellipsizeMode="tail"          
-      >
-        {title}
-      </Text>
-
-      <HStack px={2} alignItems="center" justifyContent="flex-end">
+      <VStack>
         <Text
           h={18}
-          paddingRight={6}
-          fontSize={"$xs"}
-          fontFamily="$heading"   
-          color={"$gray100"} 
-          verticalAlign="bottom"       
+          px={2}
+          fontSize={"$sm"}
+          fontFamily="$body"   
+          color={"$gray200"}
+          numberOfLines={1}  
+          ellipsizeMode="tail"          
         >
-          R$
+          {title}
         </Text>
-        <Text
-          h={18}          
-          fontSize={"$md"}
-          fontFamily="$heading"   
-          color={"$gray100"}
-          verticalAlign="bottom"         
-        >
-          {formatCurrency(price)}
-        </Text>
-      </HStack>
+
+        <HStack px={2} alignItems="baseline">
+          <Text            
+            paddingRight={6}
+            fontSize={"$xs"}
+            fontFamily="$heading"   
+            color={"$gray100"}             
+          >
+            R$
+          </Text>
+          <Text            
+            fontSize={"$md"}
+            fontFamily="$heading"   
+            color={"$gray100"}            
+          >
+            {formatCurrency(price)}
+          </Text>
+        </HStack>
+      </VStack>
       
     </VStack>
   )

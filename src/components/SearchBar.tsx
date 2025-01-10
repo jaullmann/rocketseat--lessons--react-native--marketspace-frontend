@@ -31,8 +31,7 @@ export function SearchBar({ inputText, placeholder, onPressSearch, onPressFilter
         borderWidth={0}
         alignItems="center"
         fontFamily="$body"
-        fontSize={"$md"}
-        value={inputText}
+        fontSize={"$md"}        
         placeholder={placeholder}
         placeholderTextColor="$gray400"
         {...props}
