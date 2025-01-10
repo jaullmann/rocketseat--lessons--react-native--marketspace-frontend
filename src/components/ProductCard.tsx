@@ -53,6 +53,7 @@ export function ProductCard({
           userPhotoUri ?
           <Image 
             source={{ uri: userPhotoUri }}
+            alt="Foto do usuário"
             borderWidth={1}
             borderColor="$gray700"
             w={24}
@@ -81,6 +82,7 @@ export function ProductCard({
         productPhotoUri ? 
         <Image 
           source={{ uri: productPhotoUri }}
+          alt="Foto do produto"
           w="$full"
           h={100} 
           rounded={"$sm"}         
