@@ -19,12 +19,12 @@ export function Tag({ title }: Props) {
     <HStack
       bg={isActive ? "$gray300" : "$blueLight"}
       h={28}
-      w={isActive ? 72 : 76}
+      w={90}
       px="$6"
       py="$1"
       rounded="$full"
       alignItems="center"
-      justifyContent="space-between"
+      justifyContent="center"
     >
       <Text
         textTransform="uppercase"

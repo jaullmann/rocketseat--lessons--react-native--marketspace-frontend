@@ -5,6 +5,7 @@ import { UserAnnouncementsCard } from "@components/UserAnnouncementsCard";
 import { ProductCard } from "@components/ProductCard";
 import { SearchBar } from "@components/SearchBar";
 import { UserPhoto } from "@components/UserPhoto";
+import { Filter } from "@components/Filter";
 import { Button } from "@components/Button";
 
 export function Home() {
@@ -41,7 +42,7 @@ export function Home() {
       contentContainerStyle={{
         paddingBottom: 28,
         paddingTop: 66,
-        paddingHorizontal: 16,
+        paddingHorizontal: 24,
         gap: 24,
       }}
       ListHeaderComponent={() => (
@@ -87,6 +88,8 @@ export function Home() {
               Compre produtos variados
             </Text>
             <SearchBar inputText="" placeholder="Buscar anúncio" />
+
+            <Filter />
           </VStack>
         
       )}
