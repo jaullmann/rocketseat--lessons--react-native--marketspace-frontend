@@ -1,17 +1,25 @@
+import { useState } from "react";
+
 import { Text, HStack, Button } from "@gluestack-ui/themed";
 import { X } from "lucide-react-native";
 
 type Props = {
-  used: boolean;
-  onClose: () => void;
+  title: string;
 }
 
-export function Tag({ used, onClose }: Props) {
+export function Tag({ title }: Props) {
+
+  const [isActive, setIsActive] = useState(true);
+
+  function handleTagState(){
+    setIsActive(!isActive);
+  }
+
   return (
     <HStack
-      bg={used ? "$gray500" : "$blueLight"}
+      bg={isActive ? "$gray300" : "$blueLight"}
       h={28}
-      w={used ? 72 : 76}
+      w={isActive ? 72 : 76}
       px="$6"
       py="$1"
       rounded="$full"
@@ -20,16 +28,16 @@ export function Tag({ used, onClose }: Props) {
     >
       <Text
         textTransform="uppercase"
-        color={used ? "$white" : "$gray300"}
+        color={isActive ? "$white" : "$gray500"}
         fontSize="$xs"
         fontWeight="$heading"
       >
-        {used ? "Usado" : "Novo"}
+        {title}
       </Text>
       {
-        !used && (
+        !isActive && (
           <Button
-            onPress={onClose}
+            onPress={handleTagState}
             alignItems="center"
             justifyContent="center"
             bg="$white"
