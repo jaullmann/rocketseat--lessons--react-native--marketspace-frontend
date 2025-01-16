@@ -108,36 +108,36 @@ export function Filter({ isVisible = false, ...props }: Props){
             <VStack space="md">
 
               <Checkbox value="Boleto">
-                <CheckboxIndicator mr="$2">
-                  <CheckboxIcon as={CheckIcon} />
-                </CheckboxIndicator>
+                <CheckboxIndicator mr="$2" borderColor="$blueLight" >
+                  <CheckboxIcon as={CheckIcon} bgColor="$blueLight" color="$gray600" />
+                </CheckboxIndicator >
                 <CheckboxLabel>Boleto</CheckboxLabel>
               </Checkbox>
 
               <Checkbox value="Pix">
-                <CheckboxIndicator mr="$2">
-                  <CheckboxIcon as={CheckIcon} />
+                <CheckboxIndicator mr="$2" borderColor="$blueLight">
+                  <CheckboxIcon as={CheckIcon} bgColor="$blueLight" color="$gray600" />
                 </CheckboxIndicator>
                 <CheckboxLabel>Pix</CheckboxLabel>
               </Checkbox>
 
               <Checkbox value="Dinheiro">
-                <CheckboxIndicator mr="$2">
-                  <CheckboxIcon as={CheckIcon} />
+                <CheckboxIndicator mr="$2" borderColor="$blueLight">
+                  <CheckboxIcon as={CheckIcon} bgColor="$blueLight" color="$gray600" />
                 </CheckboxIndicator>
                 <CheckboxLabel>Dinheiro</CheckboxLabel>
               </Checkbox>
 
               <Checkbox value="Credito">
-                <CheckboxIndicator mr="$2">
-                  <CheckboxIcon as={CheckIcon} />
+                <CheckboxIndicator mr="$2" borderColor="$blueLight">
+                  <CheckboxIcon as={CheckIcon} bgColor="$blueLight" color="$gray600" />
                 </CheckboxIndicator>
                 <CheckboxLabel>Cartão de crédito</CheckboxLabel>
               </Checkbox>
 
               <Checkbox value="Deposito">
-                <CheckboxIndicator mr="$2">
-                  <CheckboxIcon as={CheckIcon} />
+                <CheckboxIndicator mr="$2" borderColor="$blueLight">
+                  <CheckboxIcon as={CheckIcon} bgColor="$blueLight" color="$gray600" />
                 </CheckboxIndicator>
                 <CheckboxLabel>Depósito bancário</CheckboxLabel>
               </Checkbox>

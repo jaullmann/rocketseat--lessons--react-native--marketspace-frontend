@@ -1,4 +1,4 @@
-import { Image, VStack, HStack, Center, Text, useStyled } from "@gluestack-ui/themed";
+import { Image, VStack, HStack, Center, Text, Pressable, useStyled } from "@gluestack-ui/themed";
 import { ComponentProps } from 'react'
 import { CameraOff } from "lucide-react-native";
 
@@ -32,12 +32,13 @@ export function ProductCard({
   }
   
   return(
-    <VStack 
+    <Pressable 
       h={144} 
       flex={1} 
       justifyContent="flex-start" 
       maxWidth={'48%'} 
-      alignSelf="flex-start"      
+      alignSelf="flex-start" 
+      $active-opacity={0.7}           
     >
       <HStack 
         w={'94%'} 
@@ -132,6 +133,6 @@ export function ProductCard({
         </HStack>
       </VStack>
       
-    </VStack>
+    </Pressable>
   )
 }
