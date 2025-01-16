@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Text, HStack, VStack } from "@gluestack-ui/themed";
-import { FlatList } from "react-native";
+import { FlatList, View } from "react-native";
 import { UserAnnouncementsCard } from "@components/UserAnnouncementsCard";
 import { ProductCard } from "@components/ProductCard";
 import { SearchBar } from "@components/SearchBar";
@@ -10,7 +10,12 @@ import { Button } from "@components/Button";
 
 export function Home() {
   const [userName, setUserName] = useState("username");
+  const [isFilterVisible, setIsFilterVisible] = useState(false);
   const [userProductsAmount, setUserProductsAmount] = useState(1);
+
+  function handleFilterDisplay(){
+    setIsFilterVisible(!isFilterVisible);
+  }
 
   const productsTest = [
     { id: 0, title: "Carro", userPhotoUri: "https://github.com/jaullmann.png", productPhotoUri: 'https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2024/01/Xiaomi-SU7-2025-carro-eletrico-chines-5.jpg?w=1024' , price: 30.5 },
@@ -87,9 +92,13 @@ export function Home() {
             >
               Compre produtos variados
             </Text>
-            <SearchBar inputText="" placeholder="Buscar anúncio" />
+            <SearchBar 
+              inputText="" 
+              placeholder="Buscar anúncio" 
+              onPressFilter={handleFilterDisplay}
+            />
 
-            <Filter />
+            <Filter isVisible={isFilterVisible} />            
           </VStack>
         
       )}
