@@ -5,7 +5,7 @@ import { GluestackUIProvider } from "@gluestack-ui/themed";
 import { config } from "./config/gluestack-ui.config";
 
 import { Loading } from '@components/Loading';
-import { Home } from '@screens/Home';
+import { Details } from '@screens/Details';
 
 export default function App() {
   const [fontsLoaded] = useFonts({ Karla_400Regular, Karla_700Bold });
@@ -20,7 +20,7 @@ export default function App() {
       />
 
       {fontsLoaded ?
-        <Home />
+        <Details />
         : 
         <Loading />
       }

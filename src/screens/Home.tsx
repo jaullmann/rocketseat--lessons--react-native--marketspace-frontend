@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Text, HStack, VStack } from "@gluestack-ui/themed";
-import { FlatList, View } from "react-native";
+import { FlatList } from "react-native";
 import { UserAnnouncementsCard } from "@components/UserAnnouncementsCard";
 import { ProductCard } from "@components/ProductCard";
 import { SearchBar } from "@components/SearchBar";
