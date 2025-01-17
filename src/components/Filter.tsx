@@ -1,16 +1,17 @@
-import { 
-  VStack,   
-  Text, 
-  Checkbox, 
-  HStack, 
-  CheckboxGroup, 
-  CheckboxIndicator, 
-  CheckboxIcon, 
+import {
+  VStack,
+  Text,
+  Checkbox,
+  HStack,
+  CheckboxGroup,
+  CheckboxIndicator,
+  CheckboxIcon,
   CheckboxLabel,
   Center,
-  useStyled } from "@gluestack-ui/themed";
-import { Modal, View } from "react-native";
+  useStyled
+} from "@gluestack-ui/themed";
 import { ComponentProps, useState } from "react";
+import { Modal, View } from "react-native";
 import { Tag } from "@components/Tag";
 import { Button } from "@components/Button";
 import { Switch } from "@gluestack-ui/themed";
@@ -20,41 +21,62 @@ type Props = ComponentProps<typeof Modal> & {
   isVisible: boolean
 }
 
-export function Filter({ isVisible = false, ...props }: Props){
+export function Filter({ isVisible = false, ...props }: Props) {
 
   const [isFilterVisible, setIsFilterVisible] = useState(isVisible);
   const [acceptExchange, setAcceptExchange] = useState(false);
+  const [acceptNew, setAcceptNew] = useState(true);
+  const [acceptUsed, setAcceptUsed] = useState(true);
   const [values, setValues] = useState(["Boleto", "Pix", "Dinheiro"]);
 
   const styled = useStyled();
 
-  function handleAcceptExchange(){
+  function handleAcceptExchange() {
     setAcceptExchange(!acceptExchange);
   }
 
-  function handleCloseFilter(){
+  function handleCloseFilter() {
     setIsFilterVisible(false);
   }
-    
+
+  function handleAcceptNew() {
+    setAcceptNew(!acceptNew);
+  }
+
+  function handleAcceptUsed() {
+    setAcceptUsed(!acceptUsed);
+  }
+
+  function handleResetFilters() {
+    setValues(["Boleto", "Pix", "Dinheiro"]);
+    setAcceptExchange(false);
+    setAcceptNew(true);
+    setAcceptUsed(true);
+  }
+
+  function handleApplyFilters(){
+    handleCloseFilter();
+  }
+
   return (
-    <Modal  
-      visible={isFilterVisible} 
+    <Modal
+      visible={isFilterVisible}
       animationType="slide"
-      onDismiss={handleCloseFilter}                
-      transparent      
-      {...props}      
+      onDismiss={handleCloseFilter}
+      transparent
+      {...props}
     >
       <View
         style={{
           flex: 1,
-          backgroundColor: 'rgba(0, 0, 0, 0.6)',          
+          backgroundColor: 'rgba(0, 0, 0, 0.6)',
         }}
       >
 
         <View
           style={{
-            marginTop: "60%",          
-            position: "absolute",          
+            marginTop: "60%",
+            position: "absolute",
             flex: 1,
             bottom: 0,
             left: 0,
@@ -65,46 +87,46 @@ export function Filter({ isVisible = false, ...props }: Props){
             backgroundColor: styled.config.tokens.colors.gray600,
             padding: 24,
           }}
-          >
+        >
 
           <HStack alignItems="center" justifyContent="space-between">
-            <Text fontSize={"$xl"} fontFamily="heading" color={"$gray100"}>Filtrar anúncios</Text>        
-            <X 
-              size={24} 
-              color={styled.config.tokens.colors.gray400} 
-              onPress={handleCloseFilter}          
-              />        
-          </HStack> 
+            <Text fontSize={"$xl"} fontFamily="heading" color={"$gray100"}>Filtrar anúncios</Text>
+            <X
+              size={24}
+              color={styled.config.tokens.colors.gray400}
+              onPress={handleCloseFilter}
+            />
+          </HStack>
 
           <VStack>
             <Text mb={"$3"} fontSize={"$sm"} fontFamily="heading" color={"$gray200"}>Condição</Text>
             <HStack gap={8}>
-              <Tag title={"Novo"} defaultState={true} />
-              <Tag title={"Usado"} defaultState={true} />
-            </HStack>        
-          </VStack> 
+              <Tag title={"Novo"} isActive={acceptNew} onPress={handleAcceptNew} />
+              <Tag title={"Usado"} isActive={acceptUsed} onPress={handleAcceptUsed} />
+            </HStack>
+          </VStack>
 
           <VStack>
             <Text mb={"$1"} fontSize={"$sm"} fontFamily="heading" color={"$gray200"}>Aceita troca?</Text>
-            <Switch      
+            <Switch
               size="lg"
               alignSelf="flex-start"
-              backgroundColor="$transparent"          
-              trackColor={{false: "$gray400", true: "$blueLight"}}
-              thumbColor="$blueRegular"          
+              backgroundColor="$transparent"
+              trackColor={{ false: "$gray400", true: "$blueLight" }}
+              thumbColor="$blueRegular"
               ios_backgroundColor="$gray200"
-              value={acceptExchange} 
-              onToggle={handleAcceptExchange}                 
-              />
+              value={acceptExchange}
+              onToggle={handleAcceptExchange}
+            />
           </VStack>
-          
-          <Text>Meios de pagamento aceitos</Text>
+
+          <Text mb={-8} fontSize={"$sm"} fontFamily="heading" color={"$gray200"}>Meios de pagamento aceitos</Text>
           <CheckboxGroup
             value={values}
             onChange={(keys) => {
               setValues(keys)
             }}
-            >
+          >
             <VStack space="md">
 
               <Checkbox value="Boleto">
@@ -145,24 +167,26 @@ export function Filter({ isVisible = false, ...props }: Props){
             </VStack>
           </CheckboxGroup>
 
-          <Center 
-            flexDirection="row" 
+          <Center
+            flexDirection="row"
             mt="$8"
             gap="$4"
-            
-            >
-            <Button 
-              title="Resetar filtros" 
+
+          >
+            <Button
+              title="Resetar filtros"
               style="gray"
               flex={1}
+              onPress={handleResetFilters}
             />
-            <Button 
-              title="Aplicar filtros" 
+            <Button
+              title="Aplicar filtros"
               style="regular"
               flex={1}
-              />
+              onPress={handleApplyFilters}
+            />
           </Center>
-        
+
         </View>
 
       </View>

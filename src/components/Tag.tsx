@@ -1,25 +1,18 @@
-import { useState } from "react";
-
 import { Text, HStack, Button, useStyled, Pressable } from "@gluestack-ui/themed";
 import { X } from "lucide-react-native";
 
 type Props = {
   title: string;
-  defaultState?: boolean;
+  onPress: () => void;
+  isActive: boolean;
 }
 
-export function Tag({ title, defaultState = true }: Props) {
-
-  const [isActive, setIsActive] = useState(defaultState);
+export function Tag({ title, onPress, isActive }: Props) {  
 
   const styled = useStyled();
 
-  function handleTagState(){
-    setIsActive(!isActive);
-  }
-
   return (
-    <Pressable onPress={handleTagState}>
+    <Pressable onPress={onPress}>
       <HStack
         bg={isActive ? "$blueLight" : "$gray300"}
         h={28}
