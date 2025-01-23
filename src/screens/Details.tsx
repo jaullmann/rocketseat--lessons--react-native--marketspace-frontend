@@ -1,10 +1,11 @@
-import { VStack, HStack, Text } from "@gluestack-ui/themed";
+import { VStack, HStack, Text, ScrollView } from "@gluestack-ui/themed";
 import { SmallConditionTag } from "@components/SmallConditionTag";
+import { formatCurrency } from "@utils/Functions";
 import { ImageSwiper } from "@components/ImageSwiper";
 import { PaymentTag } from "@components/PaymentTag";
 import { BackButton } from "@components/BackButton";
 import { UserPhoto } from "@components/UserPhoto";
-import { formatCurrency } from "@utils/Functions";
+import { Button } from "@components/Button";
 
 export function Details() {
 
@@ -19,9 +20,10 @@ export function Details() {
   const description = "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet deserunt sed dicta repudiandae quaerat placeat neque facilis nesciunt ratione ut, reprehenderit voluptatem, quisquam, maxime ipsam reiciendis minus tenetur molestias fuga?"
   const acceptExchange = true;
   const acceptedPayments = ["Boleto", "Pix", "Dinheiro", "Credito", "Deposito"];
+  const contactButton = () => {}
 
   return (
-    <VStack justifyContent="flex-start" flex={1}>
+    <ScrollView flex={1} showsVerticalScrollIndicator={false}>
       <BackButton ml={"$4"} mb={"$3"}/>
       <ImageSwiper images={imageUris} />
       <VStack mx={"$6"} mt={"$6"}>
@@ -41,7 +43,7 @@ export function Details() {
 
         <SmallConditionTag isNew={isProductNew} mb={8}/>
 
-        <HStack mb={8} justifyContent={"space-between"}>
+        <HStack mb={10} justifyContent={"space-between"}>
           <Text fontSize={"$xl"} fontFamily={"$heading"} color={"$gray100"}>
             {title}
           </Text>
@@ -68,8 +70,8 @@ export function Details() {
           </Text>
         </HStack>
 
-        <VStack gap={4}>
-          <Text mb={4} fontSize={"$sm"} fontFamily={"$heading"} color={"$gray200"}>
+        <VStack gap={4} mb={26}>
+          <Text mb={6} fontSize={"$sm"} fontFamily={"$heading"} color={"$gray200"}>
            Meios de pagamento:
           </Text>
           {acceptedPayments.includes("Boleto") && <PaymentTag paymentMethod="Boleto"/>}
@@ -80,6 +82,30 @@ export function Details() {
         </VStack>
 
       </VStack>
-    </VStack>
+
+      <HStack 
+        height={90}
+        px={"$6"} 
+        alignItems={"center"}
+        justifyContent={"space-between"}
+        bg={"$gray700"}
+      >
+        <HStack alignItems={"baseline"} >
+          <Text mr={6} fontSize={"$sm"} fontFamily={"$heading"} color={"$blueLight"}>
+            R$
+          </Text>
+          <Text fontSize={"$xl"} fontFamily={"$heading"} color={"$blueLight"}>
+            {formatCurrency(price)}
+          </Text>
+        </HStack>
+        <Button 
+          title={"Entrar em contato"}
+          style={"blue"}
+          icon={"contact"}
+          onPress={contactButton}
+        />
+      </HStack>
+
+    </ScrollView>
   );
 }

@@ -42,8 +42,7 @@ export function Button({ title, style = 'regular', icon = null, isLoading = fals
   }
 
   return (
-    <GluestackButton
-      w="$full"
+    <GluestackButton      
       h="$12"
       bg={style === 'regular' ? '$gray100' : style === 'gray' ? '$gray500' : '$blueRegular'}
       rounded="$md"
