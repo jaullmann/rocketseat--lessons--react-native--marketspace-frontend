@@ -1,4 +1,4 @@
-import { Text, HStack, Button, useStyled, Pressable } from "@gluestack-ui/themed";
+import { Text, HStack, useStyled, Pressable } from "@gluestack-ui/themed";
 import { X } from "lucide-react-native";
 
 type Props = {
@@ -7,7 +7,7 @@ type Props = {
   isActive: boolean;
 }
 
-export function Tag({ title, onPress, isActive }: Props) {  
+export function ConditionTag({ title, onPress, isActive }: Props) {  
 
   const styled = useStyled();
 

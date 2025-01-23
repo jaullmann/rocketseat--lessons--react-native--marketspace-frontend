@@ -1,5 +1,6 @@
 import { Image, VStack, HStack, Center, Text, Pressable, useStyled } from "@gluestack-ui/themed";
-import { ComponentProps } from 'react'
+import { formatCurrency } from '@utils/Functions';
+import { ComponentProps } from 'react';
 import { CameraOff } from "lucide-react-native";
 
 
@@ -23,13 +24,6 @@ export function ProductCard({
 }: Props){
 
   const styled = useStyled();
-
-  function formatCurrency(value: number): string {  
-    return value
-      .toFixed(2) 
-      .replace('.', ',') 
-      .replace(/\B(?=(\d{3})+(?!\d))/g, '.'); 
-  }
   
   return(
     <Pressable 

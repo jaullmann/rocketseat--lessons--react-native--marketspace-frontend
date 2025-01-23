@@ -12,7 +12,7 @@ import {
 } from "@gluestack-ui/themed";
 import { ComponentProps, useState } from "react";
 import { Modal, View } from "react-native";
-import { Tag } from "@components/Tag";
+import { ConditionTag } from "@components/ConditionTag";
 import { Button } from "@components/Button";
 import { Switch } from "@gluestack-ui/themed";
 import { CheckIcon, X } from "lucide-react-native";
@@ -101,8 +101,8 @@ export function Filter({ isVisible = false, ...props }: Props) {
           <VStack>
             <Text mb={"$3"} fontSize={"$sm"} fontFamily="heading" color={"$gray200"}>Condição</Text>
             <HStack gap={8}>
-              <Tag title={"Novo"} isActive={acceptNew} onPress={handleAcceptNew} />
-              <Tag title={"Usado"} isActive={acceptUsed} onPress={handleAcceptUsed} />
+              <ConditionTag title={"Novo"} isActive={acceptNew} onPress={handleAcceptNew} />
+              <ConditionTag title={"Usado"} isActive={acceptUsed} onPress={handleAcceptUsed} />
             </HStack>
           </VStack>
 
