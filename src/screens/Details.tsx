@@ -94,7 +94,7 @@ export function Details() {
           <Text mr={6} fontSize={"$sm"} fontFamily={"$heading"} color={"$blueLight"}>
             R$
           </Text>
-          <Text fontSize={"$xl"} fontFamily={"$heading"} color={"$blueLight"}>
+          <Text fontSize={"$2xl"} fontFamily={"$heading"} color={"$blueLight"}>
             {formatCurrency(price)}
           </Text>
         </HStack>
